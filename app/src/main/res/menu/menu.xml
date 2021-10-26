@@ -12,7 +12,7 @@
 
     <item
         android:id="@+id/delete"
-        android:icon="@drawable/ic_add"
+        android:icon="@drawable/ic_baseline_delete_forever_24"
         android:title="Delete task"/>
 
 </menu>
