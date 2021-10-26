@@ -1,16 +1,25 @@
 package com.marah.test_todo
 
-import androidx.annotation.WorkerThread
+import android.content.Context
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
-class AppRepository(private val taskDao: TaskDao) {
+class AppRepository(context: Context) {
 
-    suspend fun allTasksList(){
-    val allTasks: List<Task> = taskDao.getAlphabetizedTasks()
-}
+    private val appDB = AppDatabase.getAppDataBase(context)!!
 
-    @Suppress("RedundantSuspendModifier")
-    @WorkerThread
-    suspend fun insert(task: Task) {
-        taskDao.insert(task)
-    }
+    suspend fun getAllTasks(): List<Task> = withContext(Dispatchers.IO) {
+        appDB.taskDao().getAlphabetizedTasks() }
+
+    suspend fun insertTask(task: Task) = withContext(Dispatchers.IO) {
+        appDB.taskDao().insert(task) }
+
+    //shouldn't return a task??
+    suspend fun updateTask(task: Task)  = withContext(Dispatchers.IO) {
+        appDB.taskDao().update(task) }
+
+    suspend fun deleteTask(task: Task) = withContext(Dispatchers.IO) {
+        appDB.taskDao().delete(task) }
+
+
 }
