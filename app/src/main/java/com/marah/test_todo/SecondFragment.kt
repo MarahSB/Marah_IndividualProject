@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-class SecondFragment : Fragment() {
+class SecondFragment : Fragment(R.layout.fragment_second) {
 //Add
 //    override fun onCreateView(
 //        inflater: LayoutInflater, container: ViewGroup?,
