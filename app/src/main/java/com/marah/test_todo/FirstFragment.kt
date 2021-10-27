@@ -18,8 +18,8 @@ import com.google.android.material.navigation.NavigationView
 class FirstFragment : Fragment(R.layout.fragment_first) {
 //Main fragment
 
-    private lateinit var addBtn: ImageButton
-    private lateinit var finishBtn: ImageButton
+    private lateinit var addBtn: Button
+    private lateinit var finishBtn: Button
     private lateinit var infoBtn: Button
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,6 +34,17 @@ class FirstFragment : Fragment(R.layout.fragment_first) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        addBtn = view.findViewById(R.id.add)
+        addBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_mainActivity_to_addTask_Fragment)
+        }
+
+        finishBtn = view.findViewById(R.id.finished)
+        finishBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_mainActivity_to_editTask_Fragment )
+        }
+
         infoBtn = view.findViewById(R.id.info)
         infoBtn.setOnClickListener {
             findNavController().navigate(R.id.action_mainActivity_to_infoFragment)

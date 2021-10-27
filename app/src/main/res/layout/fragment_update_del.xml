@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SecondFragment">
+    tools:context=".UpdateDelFragment">
 
     <TextView
         android:id="@+id/currentDate"
@@ -86,23 +86,38 @@
         android:layout_marginEnd="21dp"
         android:layout_marginBottom="43dp"
         android:background="@drawable/ic_calendar"
-        app:layout_constraintBottom_toTopOf="@+id/saveBtn"
+        app:layout_constraintBottom_toTopOf="@+id/editBtn"
         app:layout_constraintEnd_toEndOf="@+id/tvDate"
         app:layout_constraintTop_toBottomOf="@+id/etDescription"
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/saveBtn"
+        android:id="@+id/editBtn"
         android:layout_width="154dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="301dp"
         android:backgroundTint="#FDC783"
-        android:text="Add task"
+        android:text="Confirm edit"
         android:textColor="#000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.891"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cal" />
 
+    <Button
+        android:id="@+id/delBtn"
+        android:layout_width="154dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="301dp"
+        android:backgroundTint="#FDC783"
+        android:text="Delete task"
+        android:textColor="#000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.124"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cal"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

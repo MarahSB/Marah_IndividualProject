@@ -10,8 +10,6 @@ import androidx.navigation.findNavController
 
 class InfoFragment : Fragment(R.layout.fragment_info) {
 
-    private lateinit var infoBtn: Button
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

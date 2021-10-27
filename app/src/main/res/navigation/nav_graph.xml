@@ -29,6 +29,9 @@
         <action
             android:id="@+id/action_mainActivity_to_infoFragment"
             app:destination="@id/infoFragment" />
+        <action
+            android:id="@+id/action_mainActivity_to_updateDelFragment"
+            app:destination="@id/updateDelFragment" />
     </fragment>
     <fragment
         android:id="@+id/addTask_Fragment"
@@ -38,16 +41,32 @@
         <argument
             android:name="myTask"
             app:argType="com.marah.test_todo.Task" />
+        <action
+            android:id="@+id/action_addTask_Fragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
     </fragment>
     <fragment
         android:id="@+id/editTask_Fragment"
         android:name="com.marah.test_todo.ThirdFragment"
         android:label="fragment_third"
-        tools:layout="@layout/fragment_third" />
+        tools:layout="@layout/fragment_third" >
+        <action
+            android:id="@+id/action_editTask_Fragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
+    </fragment>
     <fragment
         android:id="@+id/infoFragment"
         android:name="com.marah.test_todo.InfoFragment"
         android:label="fragment_info"
         tools:layout="@layout/fragment_info" />
+    <fragment
+        android:id="@+id/updateDelFragment"
+        android:name="com.marah.test_todo.UpdateDelFragment"
+        android:label="fragment_update_del"
+        tools:layout="@layout/fragment_update_del" >
+        <action
+            android:id="@+id/action_updateDelFragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
+    </fragment>
 
 </navigation>
