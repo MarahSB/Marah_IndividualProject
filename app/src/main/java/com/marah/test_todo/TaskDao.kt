@@ -17,6 +17,9 @@ interface TaskDao {
     @Delete
     suspend fun delete(task: Task)
 
+    @Query("select * from tasks_table where due_date ==:today")
+    fun getTodayTasks(today:String):List<Task>
+
 
 
 

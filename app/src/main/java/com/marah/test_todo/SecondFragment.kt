@@ -13,16 +13,16 @@ import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.*
 import java.util.logging.SimpleFormatter
 
 class SecondFragment : Fragment(R.layout.fragment_second) {
 //Add
-    private lateinit var pickDate: TextView
-    private lateinit var dueDate: String
+    //private lateinit var pickDate: TextView
+
     private lateinit var calIcon: ImageButton
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,23 +38,13 @@ class SecondFragment : Fragment(R.layout.fragment_second) {
         val taskDescription: EditText = view.findViewById(R.id.etDescription)
         val taskDueDate: TextView = view.findViewById(R.id.tvDate)
         val currentDate: TextView = view.findViewById(R.id.currentDate)
-        val addBtn: Button = view.findViewById(R.id.btnSave)
-        addBtn.setOnClickListener {
-            val mainVM = ViewModelProvider(this).get(TaskViewModel::class.java)
-            val format = SimpleDateFormat("yyy-MM-dd HH:mm")
-            val current = format.format(Date())
+        val addBtn: Button = view.findViewById(R.id.saveBtn)
+       // pickDate = view.findViewById(R.id.tvDate)
 
-
-            val task = Task(
-                taskTitle = taskTitle.text.toString(),
-                taskDescription = taskDescription.text.toString(),
-                dueDate = taskDueDate.text.toString(),
-                creationDate = currentDate.setText(current).toString()
-            )
-
-            mainVM.insert(task)
-            view.findNavController().navigate(R.id.action_addTask_Fragment_to_mainActivity)
-        }
+        val current = LocalDate.now()
+        val formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd")
+        val formatted = current.format(formatter)
+        currentDate.text = currentDate.text.toString() + formatted
 
         calIcon = view.findViewById(R.id.cal)
         calIcon.setOnClickListener {
@@ -63,18 +53,34 @@ class SecondFragment : Fragment(R.layout.fragment_second) {
             val month = cal.get(Calendar.MONTH)
             val year = cal.get(Calendar.YEAR)
             val datePickerDialog = DatePickerDialog(view.context, DatePickerDialog.OnDateSetListener{ view,y,m,d ->
-                dueDate = "$y/${m + 1}/$d"
-                pickDate.setText(dueDate) },year,month,day)
+              var dueDate =   "$y/${m + 1}/$d"
+                taskDueDate.setText(dueDate) },year,month,day)
             datePickerDialog.datePicker.minDate = cal.timeInMillis
             datePickerDialog.show()
 
         }
 
-    }
-    companion object{
-        fun newInstance() = SecondFragment()
-    }
 
+        addBtn.setOnClickListener {
+            val mainVM = ViewModelProvider(this).get(TaskViewModel::class.java)
+//            val format = SimpleDateFormat("yyy/MM/dd ")
+//            val current = format.format(Date()).toString()
+
+
+
+
+            val task = Task(
+                taskTitle = taskTitle.text.toString(),
+                taskDescription = taskDescription.text.toString(),
+                dueDate = taskDueDate.text.toString(),
+                creationDate = currentDate.setText(formatted).toString()
+            )
+
+            mainVM.insert(task)
+            view.findNavController().navigate(R.id.action_addTask_Fragment_to_mainActivity)
+        }
+
+    }
 
 
 

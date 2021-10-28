@@ -21,5 +21,8 @@ class AppRepository(context: Context) {
     suspend fun deleteTask(task: Task) = withContext(Dispatchers.IO) {
         appDB.taskDao().delete(task) }
 
+    suspend fun todayTask(task: Task) = withContext(Dispatchers.IO) {
+        appDB.taskDao().getTodayTasks("") }
+
 
 }

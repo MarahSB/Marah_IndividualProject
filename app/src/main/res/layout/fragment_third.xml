@@ -4,68 +4,118 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ThirdFragment">
-
-
-    <EditText
-        android:id="@+id/etEditTask"
-        android:text="Task"
-        android:layout_width="340dp"
-        android:layout_height="55dp"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"
-        android:background="#f1f1f1"
-        android:inputType="textAutoComplete"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="27dp" />
-
-    <EditText
-        android:id="@+id/etEditDescription"
-        android:layout_width="340dp"
-        android:layout_height="55dp"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"
-        android:background="#f1f1f1"
-        android:hint=" Edit description"
-        android:inputType="textAutoComplete"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="104dp" />
+    tools:context=".UpdateDelFragment">
 
     <TextView
-        android:id="@+id/tvEditDate"
-        android:layout_width="340dp"
-        android:layout_height="55dp"
+        android:id="@+id/currentDate"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_gravity="center"
-        android:layout_margin="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="28dp"
         android:background="#f1f1f1"
-        android:hint=" Edit date"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="184dp" />
-
-    <ImageView
-        android:id="@+id/cal"
-        android:layout_width="34dp"
-        android:layout_height="29dp"
-        android:background="@drawable/ic_calendar"
-        tools:layout_editor_absoluteX="319dp"
-        tools:layout_editor_absoluteY="197dp"
+        android:hint="Today's date is:"
+        android:inputType="textAutoComplete"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/etNewTask"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
+    <EditText
+        android:id="@+id/etNewTask"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="39dp"
+        android:background="#f1f1f1"
+        android:hint=" Task title"
+        android:inputType="textAutoComplete"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/etDescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/currentDate"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/etDescription"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="39dp"
+        android:background="#f1f1f1"
+        android:hint=" Task description"
+        android:inputType="textAutoComplete"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/cal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etNewTask"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tvDate1"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="30dp"
+        android:hint="   Pick the task date:"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etDescription"
+        tools:ignore="MissingConstraints" />
+
+
+    <ImageButton
+        android:id="@+id/cal"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="43dp"
+        android:background="@drawable/ic_calendar"
+        app:layout_constraintBottom_toTopOf="@+id/editBtn"
+        app:layout_constraintTop_toBottomOf="@+id/etDescription"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="325dp" />
+
     <Button
-        android:id="@+id/btnSave"
+        android:id="@+id/editBtn"
         android:layout_width="154dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="240dp"
+        android:layout_marginBottom="301dp"
         android:backgroundTint="#FDC783"
         android:text="Confirm edit"
         android:textColor="#000"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.455"
+        app:layout_constraintHorizontal_bias="0.891"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEditTask" />
+        app:layout_constraintTop_toBottomOf="@+id/cal" />
 
+    <Button
+        android:id="@+id/delBtn"
+        android:layout_width="154dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="301dp"
+        android:backgroundTint="#FDC783"
+        android:text="Delete task"
+        android:textColor="#000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.124"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cal"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
