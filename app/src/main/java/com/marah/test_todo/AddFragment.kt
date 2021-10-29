@@ -12,13 +12,11 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
-import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.*
-import java.util.logging.SimpleFormatter
 
-class SecondFragment : Fragment(R.layout.fragment_second) {
+class AddFragment : Fragment(R.layout.fragment_second) {
 //Add
     //private lateinit var pickDate: TextView
 
@@ -44,7 +42,7 @@ class SecondFragment : Fragment(R.layout.fragment_second) {
         val current = LocalDate.now()
         val formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd")
         val formatted = current.format(formatter)
-        currentDate.text = currentDate.text.toString() + formatted
+        currentDate.text = formatted.toString()
 
         calIcon = view.findViewById(R.id.cal)
         calIcon.setOnClickListener {
@@ -73,7 +71,7 @@ class SecondFragment : Fragment(R.layout.fragment_second) {
                 taskTitle = taskTitle.text.toString(),
                 taskDescription = taskDescription.text.toString(),
                 dueDate = taskDueDate.text.toString(),
-                creationDate = currentDate.setText(formatted).toString()
+                creationDate = currentDate.text.toString()
             )
 
             mainVM.insert(task)

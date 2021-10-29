@@ -35,7 +35,7 @@
     </fragment>
     <fragment
         android:id="@+id/addTask_Fragment"
-        android:name="com.marah.test_todo.SecondFragment"
+        android:name="com.marah.test_todo.AddFragment"
         android:label="fragment_second"
         tools:layout="@layout/fragment_second" >
         <argument
@@ -61,9 +61,9 @@
         tools:layout="@layout/fragment_info" />
     <fragment
         android:id="@+id/updateDelFragment"
-        android:name="com.marah.test_todo.UpdateDelFragment"
+        android:name="com.marah.test_todo.UpdateFragment"
         android:label="fragment_update_del"
-        tools:layout="@layout/fragment_update_del" >
+        tools:layout="@layout/fragment_update" >
         <action
             android:id="@+id/action_updateDelFragment_to_mainActivity"
             app:destination="@id/mainActivity" />

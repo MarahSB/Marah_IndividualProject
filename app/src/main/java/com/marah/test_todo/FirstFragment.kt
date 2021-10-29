@@ -3,21 +3,12 @@ package com.marah.test_todo
 import android.os.Bundle
 import android.view.*
 import android.widget.Button
-import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.NavController
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.onNavDestinationSelected
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.bottomappbar.BottomAppBar
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.navigation.NavigationBarItemView
-import com.google.android.material.navigation.NavigationView
 
 class FirstFragment : Fragment(R.layout.fragment_first) {
 //Main fragment
@@ -49,7 +40,7 @@ class FirstFragment : Fragment(R.layout.fragment_first) {
 
         finishBtn = view.findViewById(R.id.finished)
         finishBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_mainActivity_to_editTask_Fragment )
+            findNavController().navigate(R.id.action_mainActivity_to_editTask_Fragment)
         }
 
         infoBtn = view.findViewById(R.id.info)

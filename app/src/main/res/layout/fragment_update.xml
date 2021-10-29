@@ -2,12 +2,13 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/bakk"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UpdateDelFragment">
+    tools:context=".UpdateFragment">
 
     <TextView
-        android:id="@+id/currentDate1"
+        android:id="@+id/currentDate"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_gravity="center"
@@ -15,107 +16,93 @@
         android:layout_marginTop="33dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="28dp"
-        android:background="#f1f1f1"
+        android:background="#BEBFBDBD"
         android:hint="Today's date is:"
         android:inputType="textAutoComplete"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/etNewTask1"
+        app:layout_constraintBottom_toTopOf="@+id/etNewTask"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/etNewTask1"
+        android:id="@+id/etNewTask"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_gravity="center"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="39dp"
-        android:background="#f1f1f1"
+        android:background="#BEBFBDBD"
         android:hint=" Task title"
         android:inputType="textAutoComplete"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/etDescription1"
+        app:layout_constraintBottom_toTopOf="@+id/etDescription"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/currentDate1"
+        app:layout_constraintTop_toBottomOf="@+id/currentDate"
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/etDescription1"
+        android:id="@+id/etDescription"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_gravity="center"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="39dp"
-        android:background="#f1f1f1"
+        android:background="#BEBFBDBD"
         android:hint=" Task description"
         android:inputType="textAutoComplete"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/cal"
+        app:layout_constraintBottom_toTopOf="@+id/cal1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNewTask1"
+        app:layout_constraintTop_toBottomOf="@+id/etNewTask"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/tvDate1"
+        android:id="@+id/tvDate"
         android:layout_width="0dp"
         android:layout_height="55dp"
         android:layout_gravity="center"
         android:layout_marginStart="20dp"
         android:layout_marginTop="32dp"
+        android:background="#BEBFBDBD"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="30dp"
         android:hint="   Pick the task date:"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etDescription1"
+        app:layout_constraintTop_toBottomOf="@+id/etDescription"
         tools:ignore="MissingConstraints" />
 
 
     <ImageButton
-        android:id="@+id/cal"
+        android:id="@+id/cal1"
         android:layout_width="35dp"
         android:layout_height="40dp"
         android:layout_marginBottom="43dp"
         android:background="@drawable/ic_calendar"
         app:layout_constraintBottom_toTopOf="@+id/editBtn"
-        app:layout_constraintTop_toBottomOf="@+id/etDescription1"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="325dp" />
+        app:layout_constraintStart_toEndOf="@+id/editBtn"
+        app:layout_constraintTop_toBottomOf="@+id/etDescription"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/editBtn"
         android:layout_width="154dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="301dp"
-        android:backgroundTint="#FDC783"
+        android:backgroundTint="#536DFE"
         android:text="Confirm edit"
         android:textColor="#000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.891"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cal" />
-
-    <Button
-        android:id="@+id/delBtn"
-        android:layout_width="154dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="301dp"
-        android:backgroundTint="#FDC783"
-        android:text="Delete task"
-        android:textColor="#000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.124"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cal"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/cal1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

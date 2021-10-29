@@ -1,6 +1,5 @@
 package com.marah.test_todo
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
 
 @Dao
@@ -17,8 +16,8 @@ interface TaskDao {
     @Delete
     suspend fun delete(task: Task)
 
-    @Query("select * from tasks_table where due_date ==:today")
-    fun getTodayTasks(today:String):List<Task>
+    @Query("select * from tasks_table where completed ==:done")
+    fun getDoneTasks(done:Boolean):List<Task>
 
 
 
