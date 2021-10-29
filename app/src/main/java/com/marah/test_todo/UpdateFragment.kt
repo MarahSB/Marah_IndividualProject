@@ -44,27 +44,45 @@ class UpdateFragment : Fragment() {
         val taskDescription: EditText = view.findViewById(R.id.etDescription)
         val taskDueDate: TextView = view.findViewById(R.id.tvDate)
         val currentDate: TextView = view.findViewById(R.id.currentDate)
+        calIcon = view.findViewById(R.id.cal1)
+
         taskTitle.setText(receivedTask.taskTitle)
         taskDescription.setText(receivedTask.taskDescription)
         taskDueDate.setText(receivedTask.dueDate)
         currentDate.setText(receivedTask.creationDate)
-
         val current = LocalDate.now()
         val formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd")
-        val formatted = current.format(formatter)
         currentDate.text = receivedTask.creationDate
 
+//Compare date
+        val current1 = LocalDate.now()
+        val formatter1 = DateTimeFormatter.ofPattern("yyyy/MM/d")
+        val nowDate = current1.format(formatter1)
+        val today = LocalDate.parse(nowDate, DateTimeFormatter.ofPattern("yyyy/MM/d"))
+        //  val x = LocalDate.of(2021,10,4)
+        // val nowDate2 = x.format(formatter1)
+        var dueDateString = taskDueDate.text.toString()
+        dueDateString = dueDateString.format(formatter1)
+        val dueDate = LocalDate.parse(dueDateString, DateTimeFormatter.ofPattern("yyyy/MM/d"))
 
+        if (dueDate.compareTo(today) < 0) {
+            //Date1 is after Date2
+            //Task is pass due date
+            taskTitle.isEnabled = false
+            calIcon.isClickable = false
+            calIcon.isEnabled = false
+        }
 
-        calIcon = view.findViewById(R.id.cal1)
         calIcon.setOnClickListener {
             val cal = Calendar.getInstance()
             val day = cal.get(Calendar.DAY_OF_MONTH)
             val month = cal.get(Calendar.MONTH)
             val year = cal.get(Calendar.YEAR)
-            val datePickerDialog = DatePickerDialog(view.context, DatePickerDialog.OnDateSetListener{ view, y, m, d ->
-                var dueDate =   "$y/${m + 1}/$d"
-                taskDueDate.setText(dueDate) },year,month,day)
+            val datePickerDialog =
+                DatePickerDialog(view.context, DatePickerDialog.OnDateSetListener { view, y, m, d ->
+                    var dueDate = "$y/${m + 1}/$d"
+                    taskDueDate.setText(dueDate)
+                }, year, month, day)
             datePickerDialog.datePicker.minDate = cal.timeInMillis
             datePickerDialog.show()
 

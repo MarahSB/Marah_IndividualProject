@@ -14,8 +14,6 @@ class FirstFragment : Fragment(R.layout.fragment_first) {
 //Main fragment
 
     private lateinit var recyclerView: RecyclerView
-    private lateinit var rvAdapter: TaskRVAdapter
-
     private lateinit var addBtn: Button
     private lateinit var finishBtn: Button
     private lateinit var infoBtn: Button
