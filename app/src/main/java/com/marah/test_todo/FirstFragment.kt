@@ -1,8 +1,13 @@
 package com.marah.test_todo
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.view.*
 import android.widget.Button
+import androidx.core.app.NotificationCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -12,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class FirstFragment : Fragment(R.layout.fragment_first) {
 //Main fragment
+
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var addBtn: Button
@@ -52,6 +58,7 @@ class FirstFragment : Fragment(R.layout.fragment_first) {
         viewModel.getAllTasks().observe(viewLifecycleOwner, Observer {
             recyclerView.adapter = TaskRVAdapter(it, viewModel)
         })
+
 
 
 

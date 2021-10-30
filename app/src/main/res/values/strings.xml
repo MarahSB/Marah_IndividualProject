@@ -7,4 +7,5 @@
     <string name="task_due_date">Task due date</string>
     <string name="task_description">Task description</string>
     <string name="task_title">Task title</string>
+    <string name="hi"><a href="https://outlook.office.com/mail/">https://outlook.office.com/mail/</a></string>
 </resources>
