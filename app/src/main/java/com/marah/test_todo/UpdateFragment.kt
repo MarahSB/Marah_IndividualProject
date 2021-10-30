@@ -1,6 +1,10 @@
 package com.marah.test_todo
 
 import android.app.DatePickerDialog
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +14,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.core.app.NotificationCompat
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
@@ -20,10 +26,33 @@ import java.util.*
 
 class UpdateFragment : Fragment() {
 
+//    private val CHANNEL_ID = "channel_id_01"
+//    private val notificatioId = 101
     private lateinit var calIcon: ImageButton
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
+
+  //  Notification
+//
+//    private fun createNotChannel() {
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//            val name = "Title"
+//            val notDescriptionn = "Decr for notification"
+//            val importance = NotificationManager.IMPORTANCE_DEFAULT
+//            val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
+//                description = notDescriptionn
+//            }
+//            val notificationManager: NotificationManager =
+//                requireActivity().getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+//            notificationManager.createNotificationChannel(channel)
+//        }
+//    }
+//
+//    private fun sendNotification(){
+//        val builder = NotificationCompat.Builder(context.this,CHANNEL_ID)
+//    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -59,8 +88,6 @@ class UpdateFragment : Fragment() {
         val formatter1 = DateTimeFormatter.ofPattern("yyyy/MM/d")
         val nowDate = current1.format(formatter1)
         val today = LocalDate.parse(nowDate, DateTimeFormatter.ofPattern("yyyy/MM/d"))
-        //  val x = LocalDate.of(2021,10,4)
-        // val nowDate2 = x.format(formatter1)
         var dueDateString = taskDueDate.text.toString()
         dueDateString = dueDateString.format(formatter1)
         val dueDate = LocalDate.parse(dueDateString, DateTimeFormatter.ofPattern("yyyy/MM/d"))

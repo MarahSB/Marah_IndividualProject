@@ -15,7 +15,7 @@ class FirstFragment : Fragment(R.layout.fragment_first) {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var addBtn: Button
-    private lateinit var finishBtn: Button
+    private lateinit var filterBtn: Button
     private lateinit var infoBtn: Button
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,8 +36,8 @@ class FirstFragment : Fragment(R.layout.fragment_first) {
             findNavController().navigate(R.id.action_mainActivity_to_addTask_Fragment)
         }
 
-        finishBtn = view.findViewById(R.id.finished)
-        finishBtn.setOnClickListener {
+        filterBtn = view.findViewById(R.id.filter)
+        filterBtn.setOnClickListener {
             findNavController().navigate(R.id.action_mainActivity_to_editTask_Fragment)
         }
 

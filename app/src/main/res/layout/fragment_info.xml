@@ -13,18 +13,17 @@
         android:layout_width="343dp"
         android:layout_height="45dp"
         android:layout_marginStart="30dp"
-
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="184dp"
-        android:background="#756E6E6E"
         android:text="Marah.Bossi.jed.k1@tuwaiq.edu.sa"
         android:textAlignment="center"
-        android:textColor="#536DFE"
+        android:textColor="#FF5252"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv1" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.676" />
 
     <TextView
         android:id="@+id/tv1"
@@ -32,16 +31,18 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="243dp"
         android:layout_marginBottom="17dp"
-        android:background="#756E6E6E"
+        android:background="#7E536DFE"
         android:padding="18sp"
-        android:text="This application is to manage your important tasks with the ability to add, modify and delete any future tasks, for any suggestions please contact at: "
+        android:text="This application is made to manage your important tasks with the ability to add, modify and delete any task, for any suggestions please contact at: \n\n"
         android:textAlignment="center"
+        android:textColor="#FFF"
         android:textSize="25sp"
         android:textStyle="italic"
-        android:textColor="#FFF"
         app:layout_constraintBottom_toTopOf="@+id/tv2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,7 @@ package com.marah.test_todo
 import android.app.Application
 import androidx.lifecycle.*
 import kotlinx.coroutines.launch
+import java.sql.Date
 
 class TaskViewModel (context: Application): AndroidViewModel(context){
 
@@ -28,12 +29,12 @@ class TaskViewModel (context: Application): AndroidViewModel(context){
     fun insert(task: Task) = viewModelScope.launch{
             repo.insertTask(task)
         }
-//
-//    fun getDoneTasks(): MutableLiveData<List<Task>> {
-//        val todayTasks = MutableLiveData<List<Task>>()
-//        viewModelScope.launch {
-//            todayTasks.postValue(repo.doneTask())
-//        }
-//        return  todayTasks
-//    }
+
+    fun getDoneTasks(): MutableLiveData<List<Task>> {
+        val todayTasks = MutableLiveData<List<Task>>()
+        viewModelScope.launch {
+            todayTasks.postValue(repo.doneTask())
+        }
+        return  todayTasks
+    }
 }
