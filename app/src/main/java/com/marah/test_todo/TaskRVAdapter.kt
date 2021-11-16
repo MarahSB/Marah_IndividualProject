@@ -4,13 +4,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 
-class TaskRVAdapter(private val taskList: List<Task>, val viewModel: TaskViewModel) :
+class TaskRVAdapter(private var taskList: List<Task>, val viewModel: TaskViewModel) :
     RecyclerView.Adapter<TaskAdapter>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskAdapter {
         val view =
@@ -26,21 +26,29 @@ class TaskRVAdapter(private val taskList: List<Task>, val viewModel: TaskViewMod
         holder.checkBx.isChecked = task.completed
         holder.checkBx.setOnCheckedChangeListener { _, ischeckd ->
             if (holder.checkBx.isChecked) {
-
                 task.completed = true
                 viewModel.update(task)
             } else {
                 task.completed = false
-
-
             }
-
         }
+
+
+
+        holder.delBtn.setOnClickListener {
+            viewModel.delete(task)
+            taskList -= task
+            notifyItemRemoved(position)
+            notifyItemRangeChanged(position, itemCount)
+        }
+
+
         //Move it to first fragment
         holder.itemView.setOnClickListener { view ->
             val action = FirstFragmentDirections.actionMainActivityToUpdateDelFragment(task)
             view.findNavController().navigate(action)
         }
+
     }
 
     override fun getItemCount(): Int {
@@ -53,6 +61,7 @@ class TaskAdapter(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnCl
     val descTV: TextView = itemView.findViewById(R.id.tvDesc)
     val dueDateTV: TextView = itemView.findViewById(R.id.tvDueDate)
     val checkBx: CheckBox = itemView.findViewById(R.id.checkbox)
+    val delBtn: ImageButton = itemView.findViewById(R.id.deleteBtn)
 
     init {
         itemView.setOnClickListener(this)
