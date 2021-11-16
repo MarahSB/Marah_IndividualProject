@@ -10,10 +10,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.TextView
+import android.widget.*
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.lifecycle.ViewModelProvider
@@ -26,33 +23,11 @@ import java.util.*
 
 class UpdateFragment : Fragment() {
 
-//    private val CHANNEL_ID = "channel_id_01"
-//    private val notificatioId = 101
     private lateinit var calIcon: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
-
-  //  Notification
-//
-//    private fun createNotChannel() {
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-//            val name = "Title"
-//            val notDescriptionn = "Decr for notification"
-//            val importance = NotificationManager.IMPORTANCE_DEFAULT
-//            val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
-//                description = notDescriptionn
-//            }
-//            val notificationManager: NotificationManager =
-//                requireActivity().getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-//            notificationManager.createNotificationChannel(channel)
-//        }
-//    }
-//
-//    private fun sendNotification(){
-//        val builder = NotificationCompat.Builder(context.this,CHANNEL_ID)
-//    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -80,21 +55,22 @@ class UpdateFragment : Fragment() {
         taskDueDate.setText(receivedTask.dueDate)
         currentDate.setText(receivedTask.creationDate)
         val current = LocalDate.now()
-        val formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd")
+        val formatter = DateTimeFormatter.ofPattern("yyyy/M/dd")
         currentDate.text = receivedTask.creationDate
 
 //Compare date
         val current1 = LocalDate.now()
-        val formatter1 = DateTimeFormatter.ofPattern("yyyy/MM/d")
+        val formatter1 = DateTimeFormatter.ofPattern("yyyy/M/d")
         val nowDate = current1.format(formatter1)
-        val today = LocalDate.parse(nowDate, DateTimeFormatter.ofPattern("yyyy/MM/d"))
+        val today = LocalDate.parse(nowDate, DateTimeFormatter.ofPattern("yyyy/M/d"))
         var dueDateString = taskDueDate.text.toString()
         dueDateString = dueDateString.format(formatter1)
-        val dueDate = LocalDate.parse(dueDateString, DateTimeFormatter.ofPattern("yyyy/MM/d"))
+        val dueDate = LocalDate.parse(dueDateString, DateTimeFormatter.ofPattern("yyyy/M/d"))
 
         if (dueDate.compareTo(today) < 0) {
             //Date1 is after Date2
             //Task is pass due date
+            Toast.makeText(context, "This task is pass due date", Toast.LENGTH_LONG)
             taskTitle.isEnabled = false
             calIcon.isClickable = false
             calIcon.isEnabled = false
