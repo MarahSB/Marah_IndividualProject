@@ -18,7 +18,7 @@ class TaskRVAdapter(private val taskList: List<Task>):RecyclerView.Adapter<TaskA
         holder.titleTV.text = task.taskTitle
         holder.descTV.text = task.taskDescription
         holder.dueDateTV.text = task.dueDate.toString()
-        //Move it to first fragment later
+        //Move it to first fragment
         holder.itemView.setOnClickListener { view ->
             val action = FirstFragmentDirections.actionMainActivityToAddTaskFragment(task)
             view.findNavController().navigate(action)

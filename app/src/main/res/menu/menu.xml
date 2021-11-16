@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/add"
+        android:id="@+id/add0"
         android:icon="@drawable/add"
         android:title="New task"/>
 
     <item
-    android:id="@+id/finished"
+    android:id="@+id/finished0"
     android:icon="@drawable/ic_baseline_done_24"
     android:title="Done tasks"/>
 
     <item
-        android:id="@+id/info"
+        android:id="@+id/info0"
         android:icon="@drawable/ic_info"
         android:title="App info"/>
 
