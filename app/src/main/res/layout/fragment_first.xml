@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FirstFragment">
+
+
+    <EditText
+        android:id="@+id/etNewTask"
+        android:layout_width="340dp"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:background="#f1f1f1"
+        android:hint=" Task title"
+        android:inputType="textAutoComplete"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="26dp"
+        tools:layout_editor_absoluteY="27dp" />
+
+    <EditText
+        android:id="@+id/etDescription"
+        android:layout_width="340dp"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:background="#f1f1f1"
+        android:hint=" Task description"
+        android:inputType="textAutoComplete"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="26dp"
+        tools:layout_editor_absoluteY="104dp" />
+
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="340dp"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:background="#f1f1f1"
+        android:hint=" Pick the task date"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="26dp"
+        tools:layout_editor_absoluteY="184dp" />
+
+    <TextView
+        android:id="@+id/cal"
+        android:layout_width="34dp"
+        android:layout_height="29dp"
+        android:background="@drawable/ic_calendar"
+        tools:layout_editor_absoluteX="319dp"
+        tools:layout_editor_absoluteY="197dp"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="154dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="240dp"
+        android:backgroundTint="#FDC783"
+        android:text="Save task"
+        android:textColor="#000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.455"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etNewTask" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

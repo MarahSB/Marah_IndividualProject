@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">#EDFFB24F</item>
+        <item name="colorPrimaryDark">#FF6E40</item>
+        <item name="colorAccent">#FFD740</item>
+        <item name="colorPrimarySurface">#FDC783</item>
+    </style>
+
+    <style name="word_title">
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:background">@android:color/holo_orange_light</item>
+        <item name="android:textAppearance">@android:style/TextAppearance.Large</item>
+    </style>
+</resources>
