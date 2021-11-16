@@ -1,4 +1,4 @@
-package com.marah.todo_list_app
+package com.marah.test_todo
 
 import org.junit.Test
 
