@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 
+
 class TaskRVAdapter(private var taskList: List<Task>, val viewModel: TaskViewModel) :
     RecyclerView.Adapter<TaskAdapter>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskAdapter {
@@ -33,8 +34,6 @@ class TaskRVAdapter(private var taskList: List<Task>, val viewModel: TaskViewMod
             }
         }
 
-
-
         holder.delBtn.setOnClickListener {
             viewModel.delete(task)
             taskList -= task
@@ -48,7 +47,6 @@ class TaskRVAdapter(private var taskList: List<Task>, val viewModel: TaskViewMod
             val action = FirstFragmentDirections.actionMainActivityToUpdateDelFragment(task)
             view.findNavController().navigate(action)
         }
-
     }
 
     override fun getItemCount(): Int {

@@ -15,9 +15,9 @@ interface TaskDao {
 
     @Delete
     suspend fun delete(task: Task)
-
-    @Query("select * from tasks_table where completed ==:done")
-    fun getDoneTasks(done:Boolean):List<Task>
+//
+//    @Query("select * from tasks_table where complete")
+//    fun getDoneTasks():List<Task>
 
 
 

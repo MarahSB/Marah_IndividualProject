@@ -28,12 +28,12 @@ class TaskViewModel (context: Application): AndroidViewModel(context){
     fun insert(task: Task) = viewModelScope.launch{
             repo.insertTask(task)
         }
-
-    fun getDoneTasks(task: Task): MutableLiveData<List<Task>> {
-        val todayTasks = MutableLiveData<List<Task>>()
-        viewModelScope.launch {
-            todayTasks.postValue(repo.doneTask(task))
-        }
-        return  todayTasks
-    }
+//
+//    fun getDoneTasks(): MutableLiveData<List<Task>> {
+//        val todayTasks = MutableLiveData<List<Task>>()
+//        viewModelScope.launch {
+//            todayTasks.postValue(repo.doneTask())
+//        }
+//        return  todayTasks
+//    }
 }

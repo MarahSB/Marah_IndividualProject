@@ -37,8 +37,7 @@ class AddFragment : Fragment(R.layout.fragment_second) {
         val taskDueDate: TextView = view.findViewById(R.id.tvDate)
         val currentDate: TextView = view.findViewById(R.id.currentDate)
         val addBtn: Button = view.findViewById(R.id.saveBtn)
-       // pickDate = view.findViewById(R.id.tvDate)
-
+        //Current date
         val current = LocalDate.now()
         val formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd")
         val formatted = current.format(formatter)
@@ -55,18 +54,11 @@ class AddFragment : Fragment(R.layout.fragment_second) {
                 taskDueDate.setText(dueDate) },year,month,day)
             datePickerDialog.datePicker.minDate = cal.timeInMillis
             datePickerDialog.show()
-
         }
 
 
         addBtn.setOnClickListener {
             val mainVM = ViewModelProvider(this).get(TaskViewModel::class.java)
-//            val format = SimpleDateFormat("yyy/MM/dd ")
-//            val current = format.format(Date()).toString()
-
-
-
-
             val task = Task(
                 taskTitle = taskTitle.text.toString(),
                 taskDescription = taskDescription.text.toString(),
