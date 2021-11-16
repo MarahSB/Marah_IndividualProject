@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 
 class TaskRVAdapter(private val taskList: List<Task>):RecyclerView.Adapter<TaskAdapter>() {
@@ -17,6 +18,11 @@ class TaskRVAdapter(private val taskList: List<Task>):RecyclerView.Adapter<TaskA
         holder.titleTV.text = task.taskTitle
         holder.descTV.text = task.taskDescription
         holder.dueDateTV.text = task.dueDate.toString()
+        //Move it to first fragment later
+        holder.itemView.setOnClickListener { view ->
+            val action = FirstFragmentDirections.actionMainActivityToAddTaskFragment(task)
+            view.findNavController().navigate(action)
+        }
     }
 
     override fun getItemCount(): Int {

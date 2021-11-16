@@ -19,7 +19,7 @@
         android:layout_marginStart="-10dp"
         android:layout_toEndOf="@+id/checkbox"
         android:background="@android:color/holo_orange_light"
-        android:hint="Task title" />
+        android:hint="@string/task_title" />
 
     <EditText
         android:id="@+id/tvDesc"
@@ -31,7 +31,7 @@
         android:layout_marginTop="30dp"
         android:layout_toEndOf="@+id/checkbox"
         android:background="@android:color/holo_orange_light"
-        android:hint="Task description" />
+        android:hint="@string/task_description" />
 
     <EditText
         android:id="@+id/tvDueDate"
@@ -43,5 +43,5 @@
         android:layout_marginTop="59dp"
         android:layout_toEndOf="@+id/checkbox"
         android:background="@android:color/holo_orange_light"
-        android:hint="Task due date" />
+        android:hint="@string/task_due_date" />
 </RelativeLayout>

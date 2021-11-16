@@ -2,17 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/add"
-        android:icon="@drawable/ic_add"
-        android:title="Add task"/>
+        android:icon="@drawable/add"
+        android:title="New task"/>
 
     <item
-        android:id="@+id/edit"
-        android:icon="@drawable/ic_baseline_edit_24"
-        android:title="Edit task"/>
+    android:id="@+id/finished"
+    android:icon="@drawable/ic_baseline_done_24"
+    android:title="Done tasks"/>
 
     <item
+        android:id="@+id/info"
+        android:icon="@drawable/ic_info"
+        android:title="App info"/>
+
+
+    <!--<item
         android:id="@+id/delete"
         android:icon="@drawable/ic_baseline_delete_forever_24"
-        android:title="Delete task"/>
+        android:title="Delete task"/>-->
 
 </menu>

@@ -1,71 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FirstFragment">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        tools:listitem="@layout/recyclerview_item"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/etNewTask"
-        android:layout_width="340dp"
-        android:layout_height="55dp"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"
-        android:background="#f1f1f1"
-        android:hint=" Task title"
-        android:inputType="textAutoComplete"
+    <FrameLayout
+        android:layout_width="418dp"
+        android:layout_height="56dp"
+        android:background="#E1E0E0"
+        app:layout_constraintBottom_toBottomOf="parent"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="27dp" />
+        tools:layout_editor_absoluteX="-4dp">
 
-    <EditText
-        android:id="@+id/etDescription"
-        android:layout_width="340dp"
-        android:layout_height="55dp"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"
-        android:background="#f1f1f1"
-        android:hint=" Task description"
-        android:inputType="textAutoComplete"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="104dp" />
+        <Button
+            android:id="@+id/finished"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="50dp"
+            android:background="@drawable/donetask" />
 
-    <TextView
-        android:id="@+id/tvDate"
-        android:layout_width="340dp"
-        android:layout_height="55dp"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"
-        android:background="#f1f1f1"
-        android:hint=" Pick the task date"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="184dp" />
+        <Button
+            android:id="@+id/add"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="170dp"
+            android:background="@drawable/addtask" />
 
-    <TextView
-        android:id="@+id/cal"
-        android:layout_width="34dp"
-        android:layout_height="29dp"
-        android:background="@drawable/ic_calendar"
-        tools:layout_editor_absoluteX="319dp"
-        tools:layout_editor_absoluteY="197dp"
-        tools:ignore="MissingConstraints" />
+        <Button
+            android:id="@+id/info"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="300dp"
+            android:background="@drawable/info" />
 
-    <Button
-        android:id="@+id/btnSave"
-        android:layout_width="154dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="240dp"
-        android:backgroundTint="#FDC783"
-        android:text="Save task"
-        android:textColor="#000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.455"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNewTask" />
+    </FrameLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
