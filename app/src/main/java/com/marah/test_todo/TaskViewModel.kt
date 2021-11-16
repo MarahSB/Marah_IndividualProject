@@ -17,7 +17,9 @@ class TaskViewModel (context: Application): AndroidViewModel(context){
         return  tasks
     }
 
-    suspend fun update(task: Task): Unit = repo.updateTask(task)
+     fun update(task: Task) =  viewModelScope.launch{
+        repo.updateTask(task)
+        }
 
     suspend fun delete(task: Task) = viewModelScope.launch {
         repo.deleteTask(task)
@@ -26,4 +28,12 @@ class TaskViewModel (context: Application): AndroidViewModel(context){
     fun insert(task: Task) = viewModelScope.launch{
             repo.insertTask(task)
         }
+
+    fun getTodayTasks(task: Task): MutableLiveData<List<Task>> {
+        val todayTasks = MutableLiveData<List<Task>>()
+        viewModelScope.launch {
+            todayTasks.postValue(repo.todayTask(task))
+        }
+        return  todayTasks
+    }
 }

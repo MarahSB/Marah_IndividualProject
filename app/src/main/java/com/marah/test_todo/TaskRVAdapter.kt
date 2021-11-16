@@ -3,13 +3,18 @@ package com.marah.test_todo
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.TextView
+import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 
-class TaskRVAdapter(private val taskList: List<Task>):RecyclerView.Adapter<TaskAdapter>() {
+class TaskRVAdapter(private val taskList: List<Task>, val viewModel: TaskViewModel) :
+    RecyclerView.Adapter<TaskAdapter>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskAdapter {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.recyclerview_item, parent,false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.recyclerview_item, parent, false)
         return TaskAdapter(view)
     }
 
@@ -17,10 +22,23 @@ class TaskRVAdapter(private val taskList: List<Task>):RecyclerView.Adapter<TaskA
         val task = taskList[position]
         holder.titleTV.text = task.taskTitle
         holder.descTV.text = task.taskDescription
-        holder.dueDateTV.text = task.dueDate.toString()
+        holder.dueDateTV.text = task.dueDate
+        holder.checkBx.isChecked = task.completed
+        holder.checkBx.setOnCheckedChangeListener { _, ischeckd ->
+            if (holder.checkBx.isChecked) {
+
+                task.completed = true
+                viewModel.update(task)
+            } else {
+                task.completed = false
+
+
+            }
+
+        }
         //Move it to first fragment
         holder.itemView.setOnClickListener { view ->
-            val action = FirstFragmentDirections.actionMainActivityToAddTaskFragment(task)
+            val action = FirstFragmentDirections.actionMainActivityToUpdateDelFragment(task)
             view.findNavController().navigate(action)
         }
     }
@@ -30,15 +48,18 @@ class TaskRVAdapter(private val taskList: List<Task>):RecyclerView.Adapter<TaskA
     }
 }
 
-class TaskAdapter(itemView: View): RecyclerView.ViewHolder(itemView), View.OnClickListener{
+class TaskAdapter(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
     val titleTV: TextView = itemView.findViewById(R.id.tvTaskTitle)
     val descTV: TextView = itemView.findViewById(R.id.tvDesc)
     val dueDateTV: TextView = itemView.findViewById(R.id.tvDueDate)
+    val checkBx: CheckBox = itemView.findViewById(R.id.checkbox)
+
     init {
         itemView.setOnClickListener(this)
     }
+
     override fun onClick(v: View?) {
-      //  TODO("Not yet implemented")
+        Toast.makeText(itemView.context, "${titleTV.text} clicked", Toast.LENGTH_SHORT).show()
     }
 
 }

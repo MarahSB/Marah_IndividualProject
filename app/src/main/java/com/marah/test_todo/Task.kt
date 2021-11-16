@@ -11,10 +11,12 @@ import java.util.*
 @Parcelize
 @Entity(tableName = "tasks_table")
 data class Task(
-    //@ColumnInfo(name = "id") @PrimaryKey val id: Int,
+    @ColumnInfo(name = "id") @PrimaryKey(autoGenerate = true) val id: Int=0,
     @ColumnInfo(name = "title") var taskTitle: String,
-    @ColumnInfo(name = "description") @PrimaryKey var taskDescription: String,
+    @ColumnInfo(name = "description") var taskDescription: String,
     @ColumnInfo(name = "due_date") var dueDate: String,
-    @ColumnInfo(name = "current_date") var creationDate: String = System.currentTimeMillis().toString(),
+    @ColumnInfo(name = "current_date") var creationDate: String ,
+    @ColumnInfo(name = "completed") var completed: Boolean = false,
+//= System.currentTimeMillis().toString()
 
 ): Parcelable

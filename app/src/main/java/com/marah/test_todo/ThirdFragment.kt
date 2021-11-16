@@ -7,7 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 
 class ThirdFragment : Fragment(R.layout.fragment_third) {
-//edit
+//Filter today tasks
+
 
 
 //
